@@ -22,21 +22,22 @@ Out of the box, PupNet can create AppImages on Linux and Zip files on all platfo
 however, you must first install the appropriate third-party builder tool against which PupNet will call.
 
 ## Getting Started ##
-For instructions on use, see: **[github.com/kuiperzone/PupNet](https://github.com/kuiperzone/PupNet)**
+For instructions on use, see: **[github.com/Neurofibromin/PupNet-Deploy](https://github.com/Neurofibromin/PupNet-Deploy)**
 
 To install as a dotnet tool:
 
-    dotnet tool install -g KuiperZone.PupNet
+    dotnet tool install -g Neurofibromin.PupNet
 
 Alternatively, for self-contained installers go:
 
-**[DOWNLOAD & INSTALL](https://github.com/kuiperzone/PupNet/releases/latest)**
+**[DOWNLOAD & INSTALL](https://github.com/Neurofibromin/PupNet-Deploy/releases/latest)**
 
 *If you like this project, don't forget to like and share.*
 
 ## Copyright & License ##
 
-Copyright (C) Andy Thomas, 2024. Website: https://kuiper.zone
+Copyright (C) Andy Thomas, 2024. Website: https://kuiper.zone <br/>
+Copyright (C) 2025 Neurofibromin
 
 PupNet is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free Software

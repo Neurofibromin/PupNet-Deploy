@@ -1,0 +1,61 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Nuget
+
+on:
+# Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+env:
+  VERSION: "1.8.1"
+  DOTNETVERSION: "net9.0"
+  RUNNER_TOOL_CACHE: /toolcache
+  ACTIONS_STEP_DEBUG: true
+  dotnet-version: "9.0.x"
+
+jobs:
+  pack:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    if: true
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core SDK ${{ env.dotnet-version }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.dotnet-version }}  
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet pack PupNet/PupNet.csproj
+    - name: Display dotnet version
+      run: dotnet --version
+    - name: "List all files"
+      run: ls -R
+          
+  release:
+      strategy:
+        matrix:
+          os: [ ubuntu-latest ]
+      runs-on: ${{ matrix.os }}
+      needs: [pack]
+      if: ${{ needs.pack.result == 'success' }}
+      steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.dotnet-version }}
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Pack
+        run: dotnet pack /p:ContinuousIntegrationBuild=true PupNet/PupNet.csproj
+      - name: "List all files"
+        run: |
+          echo $PWD
+          ls -R
+      - name: "Upload to NuGet.org"
+        run: dotnet nuget push Deploy/OUT/Neurofibromin.PupNet.${{ env.VERSION }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

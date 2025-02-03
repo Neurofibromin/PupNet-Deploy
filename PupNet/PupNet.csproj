@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
@@ -12,16 +12,17 @@
 
 		<IsPublishable>true</IsPublishable>
 		<ApplicationIcon>Assets/app.ico</ApplicationIcon>
+		<Version>1.8.1</Version>
 
-		<PackageId>KuiperZone.PupNet</PackageId>
+		<PackageId>Neurofibromin.PupNet</PackageId>
 		<Product>PupNet Deploy</Product>
-		<Authors>Andy Thomas</Authors>
-		<Copyright>© Andy Thomas 2022-24</Copyright>
+		<Authors>Andy Thomas and Neurofibromin</Authors>
+		<Copyright>© Andy Thomas 2022-24, (c) 2025 Neurofibromin</Copyright>
 		<Company>KuiperZone</Company>
 		<Description>Publish, Package and Deploy as: AppImage, Windows Setup, Flatpak, Deb, RPM and Zip</Description>
 		<PackageTags>publish;pack;deploy;AppImage;flatpak;deb;rpm;setup;installer;linux;</PackageTags>
 		<Language>en-US</Language>
-		<PackageProjectUrl>https://github.com/kuiperzone/PupNet-Deploy</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/Neurofibromin/PupNet-Deploy</PackageProjectUrl>
 		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
   	</PropertyGroup>

@@ -227,7 +227,7 @@ public class BuildHost
                     {
                         Console.WriteLine("No dll files found");
                         StringReader reader = new StringReader(Builder.ManifestContent);
-                        string line = reader.ReadLine();
+                        string? line = reader.ReadLine();
                         var sb = new StringBuilder();
                         while (line != null)
                         {
